@@ -1,0 +1,470 @@
+Default:
+  OAK_SAPLING:
+    NA16S-Baldcypress:
+      weight: 40
+      y-offset: -3
+    NA10S-WhiteOak:
+      weight: 60
+      y-offset: -1
+    NA13S-AmericanBeech:
+      weight: 26
+      y-offset: -2
+    NA8S-FloweringDogwood:
+      weight: 60
+      y-offset: -1
+    NA3s-LoblollyPine:
+      weight: 34
+      y-offset: -2
+  BIRCH_SAPLING:
+    AFR10S-Tamboti:
+      weight: 85
+      y-offset: -1
+    AFR12L-Huilboerboon:
+      weight: 70
+      y-offset: -3
+    AFR12S-Huilboerboon:
+      weight: 75
+      y-offset: -1
+    AFR1S-GrandidiersBaobab:
+      weight: 25
+      y-offset: -4
+    AFR5S-Jackalberry:
+      weight: 38
+      y-offset: -2
+    AFR9S-SausageTree:
+      weight: 43
+      y-offset: -3
+  SPRUCE_SAPLING:
+    EUR14S-ScotsPine:
+      weight: 25
+      y-offset: -1
+    EUR10L-EUHolly:
+      weight: 50
+    EUR11L-CommonJuniper:
+      weight: 60
+    EUR11S-CommonJuniper:
+      weight: 80
+      y-offset: -1
+    EUR20S-NorwaySpruce:
+      weight: 60
+      y-offset: -1
+  JUNGLE_SAPLING:
+    SA17S-MaripaPalm:
+      weight: 70
+    SA15L-LeopoldiniaPiassaba:
+      weight: 60
+    SA8L-BabassuPalm:
+      weight: 68
+    SA10S-BrazilNut:
+      weight: 10
+      y-offset: -2
+    SA4S-AstrocaryumJauari:
+      weight: 65
+  ACACIA_SAPLING:
+    acacia1L:
+      weight: 30
+      y-offset: -4
+    acacia1M:
+      weight: 70
+      y-offset: -2
+    acacia1S:
+      weight: 100
+      y-offset: -1
+    acacia2L:
+      weight: 33
+  DARK_OAK_SAPLING:
+    5-1-1:
+      weight: 90
+      y-offset: -4
+    5-1-2:
+      weight: 72
+      y-offset: -2
+    5-2-1:
+      weight: 70
+      y-offset: -2
+    5-2-2:
+      weight: 60
+      y-offset: -2
+  BROWN_MUSHROOM:
+    B7:
+      weight: 65
+      y-offset: -1
+  RED_MUSHROOM:
+    R7:
+      weight: 100
+
+FROZEN_BEACH:
+  OAK_SAPLING:
+    oakbush1:
+      weight: 100
+    oakbush2:
+      weight: 100
+  BIRCH_SAPLING:
+    bush2M:
+      weight: 100
+    bush2s:
+      weight: 100
+  SPRUCE_SAPLING:
+    birchbush1s:
+      weight: 100
+    birchbush1M:
+      weight: 100
+  JUNGLE_SAPLING:
+    junglebush1:
+      weight: 100
+    junglebush2:
+      weight: 100
+  ACACIA_SAPLING:
+    acaciabush1:
+      weight: 100
+    acaciabush2:
+      weight: 75
+  DARK_OAK_SAPLING:
+    darkbush1:
+      weight: 100
+    darkbush2:
+      weight: 90
+
+MESA:
+  OAK_SAPLING:
+    NA1L-RedMaple:
+      weight: 60
+    NA1S-RedMaple:
+      weight: 100
+    NA4S-Sweetgum:
+      weight: 100
+  BIRCH_SAPLING:
+    bush2M:
+      weight: 100
+    bush2s:
+      weight: 100
+  SPRUCE_SAPLING:
+    birchbush1s:
+      weight: 100
+    birchbush1M:
+      weight: 100
+  JUNGLE_SAPLING:
+    junglebush1:
+      weight: 100
+    junglebush2:
+      weight: 100
+  ACACIA_SAPLING:
+    acaciabush1:
+      weight: 100
+    acaciabush2:
+      weight: 75
+  DARK_OAK_SAPLING:
+    darkbush1:
+      weight: 100
+    darkbush2:
+      weight: 90
+
+BEACH:
+  OAK_SAPLING:
+    oakbush1:
+      weight: 100
+    oakbush2:
+      weight: 100
+  BIRCH_SAPLING:
+    bush2M:
+      weight: 100
+    bush2s:
+      weight: 100
+  SPRUCE_SAPLING:
+    birchbush1s:
+      weight: 100
+    birchbush1M:
+      weight: 100
+  JUNGLE_SAPLING:
+    junglebush1:
+      weight: 100
+    junglebush2:
+      weight: 100
+  ACACIA_SAPLING:
+    acaciabush1:
+      weight: 100
+    acaciabush2:
+      weight: 75
+  DARK_OAK_SAPLING:
+    darkbush1:
+      weight: 100
+    darkbush2:
+      weight: 90
+
+DESERT:
+  OAK_SAPLING:
+    oakbush1:
+      weight: 100
+    oakbush2:
+      weight: 100
+  BIRCH_SAPLING:
+    bush2M:
+      weight: 100
+    bush2s:
+      weight: 100
+  SPRUCE_SAPLING:
+    birchbush1s:
+      weight: 100
+    birchbush1M:
+      weight: 100
+  JUNGLE_SAPLING:
+    junglebush1:
+      weight: 100
+    junglebush2:
+      weight: 100
+  ACACIA_SAPLING:
+    acaciabush1:
+      weight: 100
+    acaciabush2:
+      weight: 75
+  DARK_OAK_SAPLING:
+    darkbush1:
+      weight: 100
+    darkbush2:
+      weight: 90
+
+PLAINS:
+  OAK_SAPLING:
+    oakbush1:
+      weight: 100
+    oakbush2:
+      weight: 100
+  BIRCH_SAPLING:
+    bush2M:
+      weight: 100
+    bush2s:
+      weight: 100
+  SPRUCE_SAPLING:
+    birchbush1s:
+      weight: 100
+    birchbush1M:
+      weight: 100
+  JUNGLE_SAPLING:
+    junglebush1:
+      weight: 100
+    junglebush2:
+      weight: 100
+  ACACIA_SAPLING:
+    acaciabush1:
+      weight: 100
+    acaciabush2:
+      weight: 75
+  DARK_OAK_SAPLING:
+    darkbush1:
+      weight: 100
+    darkbush2:
+      weight: 90
+
+SAVANNA:
+  OAK_SAPLING:
+    oakbush1:
+      weight: 100
+    oakbush2:
+      weight: 100
+  BIRCH_SAPLING:
+    bush2M:
+      weight: 100
+      y-offset: -1
+    bush2s:
+      weight: 100
+      y-offset: -1
+  SPRUCE_SAPLING:
+    birchbush1s:
+      weight: 100
+    birchbush1M:
+      weight: 100
+  JUNGLE_SAPLING:
+    junglebush1:
+      weight: 100
+    junglebush2:
+      weight: 100
+  DARK_OAK_SAPLING:
+    darkbush1:
+      weight: 100
+    darkbush2:
+      weight: 90
+
+FOREST:
+  OAK_SAPLING:
+    NA16S-Baldcypress:
+      weight: 40
+      y-offset: -3
+    NA10S-WhiteOak:
+      weight: 60
+      y-offset: -1
+    NA10L-WhiteOak:
+      weight: 16
+      y-offset: 2
+    NA13L-AmericanBeech:
+      weight: 6
+      y-offset: -3
+    NA13S-AmericanBeech:
+      weight: 26
+      y-offset: -2
+    NA8S-FloweringDogwood:
+      weight: 60
+      y-offset: -1
+    NA3s-LoblollyPine:
+      weight: 34
+      y-offset: -2
+
+ROOFED_FOREST:
+  OAK_SAPLING:
+    AFR8S-Mopane:
+      weight: 90
+      y-offset: -2
+    NA13S-AmericanBeech:
+      weight: 26
+      y-offset: -2
+    NA3s-LoblollyPine:
+      weight: 34
+      y-offset: -2
+  RED_MUSHROOM:
+    R2:
+      weight: 75
+      y-offset: -1
+    R3:
+      weight: 100
+    R4:
+      weight: 100
+    R5:
+      weight: 75
+    R6:
+      weight: 100
+    R7:
+      weight: 100
+    W2:
+      weight: 50
+    W3:
+      weight: 50
+    W4:
+      weight: 50
+    W5:
+      weight: 50
+  BROWN_MUSHROOM:
+    B2:
+      weight: 90
+    B3:
+      weight: 100
+    B4:
+      weight: 100
+    B5:
+      weight: 100
+    B6:
+      weight: 100
+    B7:
+      weight: 65
+      y-offset: -1
+    W2:
+      weight: 50
+    W3:
+      weight: 50
+    W4:
+      weight: 50
+    W5:
+      weight: 50
+
+MUSHROOM_ISLAND:
+  RED_MUSHROOM:
+    R1:
+      weight: 40
+      y-offset: -1
+    R2:
+      weight: 75
+      y-offset: -1
+    R3:
+      weight: 100
+    R4:
+      weight: 100
+    R5:
+      weight: 75
+    R6:
+      weight: 100
+    R7:
+      weight: 100
+    W1:
+      weight: 5
+      y-offset: -1
+    W2:
+      weight: 50
+    W3:
+      weight: 50
+    W4:
+      weight: 50
+    W5:
+      weight: 50
+  BROWN_MUSHROOM:
+    B1:
+      weight: 60
+      y-offset: -1
+    B2:
+      weight: 90
+    B3:
+      weight: 100
+    B4:
+      weight: 100
+    B5:
+      weight: 100
+    B6:
+      weight: 100
+    B7:
+      weight: 65
+      y-offset: -1
+    W1:
+      weight: 5
+      y-offset: -1
+    W2:
+      weight: 50
+    W3:
+      weight: 50
+    W4:
+      weight: 50
+    W5:
+      weight: 50
+  OAK_SAPLING:
+    oakbush1:
+      weight: 100
+    oakbush2:
+      weight: 100
+  BIRCH_SAPLING:
+    bush2M:
+      weight: 100
+    bush2s:
+      weight: 100
+  SPRUCE_SAPLING:
+    birchbush1s:
+      weight: 100
+    birchbush1M:
+      weight: 100
+  JUNGLE_SAPLING:
+    junglebush1:
+      weight: 100
+    junglebush2:
+      weight: 100
+  ACACIA_SAPLING:
+    acaciabush1:
+      weight: 100
+    acaciabush2:
+      weight: 75
+  DARK_OAK_SAPLING:
+    darkbush1:
+      weight: 100
+    darkbush2:
+      weight: 90
+
+SWAMP:
+  OAK_SAPLING:
+    EUR2S-CommonAsh:
+      weight: 100
+      y-offset: -3
+    EUR2L-CommonAsh:
+      weight: 40
+      y-offset: -2
+  BIRCH_SAPLING:
+    EUR17S-WhiteWillow:
+      weight: 100
+      y-offset: -1
+    EUR17L-WhiteWillow:
+      weight: 40
+      y-offset: -3
+
