@@ -37,6 +37,12 @@ public class CustomTrees extends JavaPlugin {
                 return;
             }
         }
+        File schematicsFolder = new File(folder, "schematics");
+        if (!schematicsFolder.exists()) {
+            getLogger().severe("Unable to find schematics folder.");
+            Bukkit.getPluginManager().disablePlugin(this);
+            return;
+        }
         File configFile = new File(folder, "config.yml");
         if (!configFile.exists()) {
             try {

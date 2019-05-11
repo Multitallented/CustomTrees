@@ -81,6 +81,7 @@ public class SaplingListener implements Listener {
         int xOffset = 0;
         int yOffset = 0;
         int zOffset = 0;
+        CustomTree selectedCustomTree = null;
         {
             HashSet<CustomTree> treeSet = treeMap.get(saplingMaterial);
             if (treeSet == null) {
@@ -89,8 +90,6 @@ public class SaplingListener implements Listener {
             if (treeSet == null) {
                 return;
             }
-
-            event.setCancelled(true);
 
             int totalWeight = 0;
             for (CustomTree customTree : treeSet) {
@@ -103,7 +102,9 @@ public class SaplingListener implements Listener {
                 if (randomWeight > 0) {
                     continue;
                 }
-                schematicFile = new File(plugin.getDataFolder(), customTree.getName() + ".schematic");
+                selectedCustomTree = customTree;
+                File schematicsFolder = new File (plugin.getDataFolder(), "schematics");
+                schematicFile = new File(schematicsFolder, customTree.getName() + ".schematic");
                 xOffset = customTree.getXOffset();
                 yOffset = customTree.getYOffset();
                 zOffset = customTree.getZOffset();
@@ -114,6 +115,8 @@ public class SaplingListener implements Listener {
                 System.out.println("schematic " + schematicFile.getName() + " does not exist");
                 return;
             }
+
+            event.setCancelled(true);
         }
 
         try {
@@ -173,21 +176,21 @@ public class SaplingListener implements Listener {
             rotation *= 90;
             if (rotation != 0) {
                 transform.rotateY(rotation);
-//                if (rotation == 90) {
-//                    int tempOffset = xOffset;
-//                    xOffset = -1 * zOffset;
-//                    zOffset = tempOffset;
-//                } else if (rotation == 180) {
-//                    xOffset = -1 * xOffset;
-//                    zOffset = -1 * zOffset;
-//                } else if (rotation == 270) {
-//                    int tempOffset = xOffset;
-//                    xOffset = -1 * zOffset;
-//                    zOffset = tempOffset;
-//                }
+                if (rotation == 90) {
+                    int tempOffset = xOffset;
+                    xOffset = -1 * zOffset;
+                    zOffset = tempOffset;
+                } else if (rotation == 180) {
+                    xOffset = -1 * xOffset;
+                    zOffset = -1 * zOffset;
+                } else if (rotation == 270) {
+                    int tempOffset = xOffset;
+                    xOffset = -1 * zOffset;
+                    zOffset = tempOffset;
+                }
             }
 
-//            System.out.println(rotation + ": " + xOffset + "," + yOffset + "," + zOffset);
+            System.out.println(selectedCustomTree.getName() + " " + rotation + ": " + xOffset + "," + yOffset + "," + zOffset);
 
             event.getLocation().getBlock().setType(Material.AIR);
 
