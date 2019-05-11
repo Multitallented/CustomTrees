@@ -22,6 +22,8 @@ import org.bukkit.event.world.StructureGrowEvent;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Created by Multi on 11/19/2015.
@@ -66,12 +68,10 @@ public class SaplingListener implements Listener {
 
         Biome biome = event.getLocation().getBlock().getBiome();
 
-        //PLAINS: SAPLING-0: tree1: weight: 100 x-offset: 0 y-offset: -2 z-offset: 0
-
-        ConfigurationSection section = CustomTrees.config.getConfigurationSection(biome.name());
-        if (section == null) {
-            section = CustomTrees.config.getConfigurationSection("Default");
-            if (section == null) {
+        HashMap<Material, HashSet<CustomTree>> treeMap = CustomTrees.trees.get(biome.name());
+        if (treeMap == null) {
+            treeMap = CustomTrees.trees.get("DEFAULT");
+            if (treeMap == null) {
                 return;
             }
         }
@@ -82,36 +82,31 @@ public class SaplingListener implements Listener {
         int yOffset = 0;
         int zOffset = 0;
         {
-            ConfigurationSection matSection = section.getConfigurationSection(saplingMaterial.name());
-            if (matSection == null || matSection.getKeys(false).isEmpty()) {
-                section = CustomTrees.config.getConfigurationSection("Default");
-                if (section == null) {
-                    return;
-                }
-                matSection = section.getConfigurationSection(saplingMaterial.name());
-                if (matSection == null || matSection.getKeys(false).isEmpty()) {
-                    return;
-                }
+            HashSet<CustomTree> treeSet = treeMap.get(saplingMaterial);
+            if (treeSet == null) {
+                treeSet = CustomTrees.trees.get("DEFAULT").get(saplingMaterial);
+            }
+            if (treeSet == null) {
+                return;
             }
 
             event.setCancelled(true);
 
             int totalWeight = 0;
-            for (String key : matSection.getKeys(false)) {
-                int currentWeight = matSection.getInt(key + ".weight", 0);
-                totalWeight += currentWeight;
+            for (CustomTree customTree : treeSet) {
+                totalWeight += customTree.getWeight();
             }
             double randomWeight = ((double) totalWeight) * Math.random();
 
-            for (String key : matSection.getKeys(false)) {
-                randomWeight -= matSection.getInt(key + ".weight", 0);
+            for (CustomTree customTree : treeSet) {
+                randomWeight -= customTree.getWeight();
                 if (randomWeight > 0) {
                     continue;
                 }
-                schematicFile = new File(plugin.getDataFolder(), key + ".schematic");
-                xOffset = matSection.getInt(key + ".x-offset", 0);
-                yOffset = matSection.getInt(key + ".y-offset", 0);
-                zOffset = matSection.getInt(key + ".z-offset", 0);
+                schematicFile = new File(plugin.getDataFolder(), customTree.getName() + ".schematic");
+                xOffset = customTree.getXOffset();
+                yOffset = customTree.getYOffset();
+                zOffset = customTree.getZOffset();
                 break;
             }
 
@@ -156,6 +151,7 @@ public class SaplingListener implements Listener {
                                 block.getType() != Material.GRASS &&
                                 block.getType() != Material.DIRT &&
                                 block.getType() != Material.MYCELIUM &&
+                                block.getType() != Material.PODZOL &&
                                 block.getType() != Material.STONE &&
                                 block.getType() != Material.OAK_LOG &&
                                 block.getType() != Material.BIRCH_LOG &&
@@ -177,21 +173,21 @@ public class SaplingListener implements Listener {
             rotation *= 90;
             if (rotation != 0) {
                 transform.rotateY(rotation);
-                if (rotation == 90) {
-                    int tempOffset = xOffset;
-                    xOffset = -1 * zOffset;
-                    zOffset = tempOffset;
-                } else if (rotation == 180) {
-                    xOffset = -1 * xOffset;
-                    zOffset = -1 * zOffset;
-                } else if (rotation == 270) {
-                    int tempOffset = xOffset;
-                    xOffset = -1 * zOffset;
-                    zOffset = tempOffset;
-                }
+//                if (rotation == 90) {
+//                    int tempOffset = xOffset;
+//                    xOffset = -1 * zOffset;
+//                    zOffset = tempOffset;
+//                } else if (rotation == 180) {
+//                    xOffset = -1 * xOffset;
+//                    zOffset = -1 * zOffset;
+//                } else if (rotation == 270) {
+//                    int tempOffset = xOffset;
+//                    xOffset = -1 * zOffset;
+//                    zOffset = tempOffset;
+//                }
             }
 
-            System.out.println(rotation + ": " + xOffset + "," + yOffset + "," + zOffset);
+//            System.out.println(rotation + ": " + xOffset + "," + yOffset + "," + zOffset);
 
             event.getLocation().getBlock().setType(Material.AIR);
 

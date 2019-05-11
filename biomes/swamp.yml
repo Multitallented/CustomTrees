@@ -1,0 +1,15 @@
+SWAMP:
+  OAK_SAPLING:
+    EUR2S-CommonAsh:
+      weight: 100
+      y-offset: -3
+    EUR2L-CommonAsh:
+      weight: 40
+      y-offset: -2
+  BIRCH_SAPLING:
+    EUR17S-WhiteWillow:
+      weight: 100
+      y-offset: -1
+    EUR17L-WhiteWillow:
+      weight: 40
+      y-offset: -3

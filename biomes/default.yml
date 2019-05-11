@@ -1,0 +1,94 @@
+Default:
+  OAK_SAPLING:
+    NA16S-Baldcypress:
+      weight: 40
+      y-offset: -3
+    NA10S-WhiteOak:
+      weight: 60
+      y-offset: -1
+    NA13S-AmericanBeech:
+      weight: 26
+      y-offset: -2
+    NA8S-FloweringDogwood:
+      weight: 60
+      y-offset: -1
+    NA3s-LoblollyPine:
+      weight: 34
+      y-offset: -2
+  BIRCH_SAPLING:
+    AFR10S-Tamboti:
+      weight: 85
+      y-offset: -1
+    AFR12L-Huilboerboon:
+      weight: 70
+      y-offset: -3
+    AFR12S-Huilboerboon:
+      weight: 75
+      y-offset: -1
+    AFR1S-GrandidiersBaobab:
+      weight: 25
+      y-offset: -4
+    AFR5S-Jackalberry:
+      weight: 38
+      y-offset: -2
+    AFR9S-SausageTree:
+      weight: 43
+      y-offset: -3
+  SPRUCE_SAPLING:
+    EUR14S-ScotsPine:
+      weight: 25
+      y-offset: -1
+    EUR10L-EUHolly:
+      weight: 50
+    EUR11L-CommonJuniper:
+      weight: 60
+    EUR11S-CommonJuniper:
+      weight: 80
+      y-offset: -1
+    EUR20S-NorwaySpruce:
+      weight: 60
+      y-offset: -1
+  JUNGLE_SAPLING:
+    SA17S-MaripaPalm:
+      weight: 70
+    SA15L-LeopoldiniaPiassaba:
+      weight: 60
+    SA8L-BabassuPalm:
+      weight: 68
+    SA10S-BrazilNut:
+      weight: 10
+      y-offset: -2
+    SA4S-AstrocaryumJauari:
+      weight: 65
+  ACACIA_SAPLING:
+    acacia1L:
+      weight: 30
+      y-offset: -4
+    acacia1M:
+      weight: 70
+      y-offset: -2
+    acacia1S:
+      weight: 100
+      y-offset: -1
+    acacia2L:
+      weight: 33
+  DARK_OAK_SAPLING:
+    5-1-1:
+      weight: 90
+      y-offset: -4
+    5-1-2:
+      weight: 72
+      y-offset: -2
+    5-2-1:
+      weight: 70
+      y-offset: -2
+    5-2-2:
+      weight: 60
+      y-offset: -2
+  BROWN_MUSHROOM:
+    B7:
+      weight: 65
+      y-offset: -1
+  RED_MUSHROOM:
+    R7:
+      weight: 100

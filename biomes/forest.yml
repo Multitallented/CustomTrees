@@ -1,0 +1,23 @@
+FOREST:
+  OAK_SAPLING:
+    NA16S-Baldcypress:
+      weight: 40
+      y-offset: -3
+    NA10S-WhiteOak:
+      weight: 60
+      y-offset: -1
+    NA10L-WhiteOak:
+      weight: 16
+      y-offset: 2
+    NA13L-AmericanBeech:
+      weight: 6
+      y-offset: -3
+    NA13S-AmericanBeech:
+      weight: 26
+      y-offset: -2
+    NA8S-FloweringDogwood:
+      weight: 60
+      y-offset: -1
+    NA3s-LoblollyPine:
+      weight: 34
+      y-offset: -2

@@ -3,7 +3,6 @@ database: false
 description: Makes saplings and mushrooms grow into worldedit schematics
 main: org.redcastlemedia.bukkit.customtrees.CustomTrees
 name: CustomTrees
-startup: postworld
-version: '0.1'
-depend: [Vault]
-loadafter: [Vault]
+load: POSTWORLD
+version: 1.0-SNAPSHOT
+api-version: 1.14
