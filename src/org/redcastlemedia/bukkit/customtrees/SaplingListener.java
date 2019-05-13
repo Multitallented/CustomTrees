@@ -120,7 +120,9 @@ public class SaplingListener implements Listener {
         }
 
         try {
-            BlockVector3 to = BlockVector3.at(event.getLocation().getX() + xOffset, event.getLocation().getY() + yOffset, event.getLocation().getZ() + zOffset);
+            BlockVector3 to = BlockVector3.at(event.getLocation().getX() + xOffset,
+                                              event.getLocation().getY() + yOffset,
+                                              event.getLocation().getZ() + zOffset);
             Clipboard clipboard = ClipboardFormats.findByFile(schematicFile)
                     .getReader(new FileInputStream(schematicFile)).read();
 
@@ -139,7 +141,8 @@ public class SaplingListener implements Listener {
                     for (int z=c; z<c+length; z++) {
 
                         //skip air blocks
-                        if (clipboard.getBlock(BlockVector3.at(x-a, y-b, z-c)).getBlockType().getMaterial().isAir()) {
+                        if (clipboard.getBlock(BlockVector3.at(x-a, y-b, z-c))
+                                .getBlockType().getMaterial().isAir()) {
                             continue;
                         }
 
@@ -190,7 +193,8 @@ public class SaplingListener implements Listener {
                 }
             }
 
-            System.out.println(selectedCustomTree.getName() + " " + rotation + ": " + xOffset + "," + yOffset + "," + zOffset);
+            System.out.println(selectedCustomTree.getName() + " " + rotation + ": " +
+                    xOffset + "," + yOffset + "," + zOffset);
 
             event.getLocation().getBlock().setType(Material.AIR);
 
