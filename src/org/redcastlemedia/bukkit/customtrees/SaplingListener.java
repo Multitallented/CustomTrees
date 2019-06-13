@@ -193,8 +193,10 @@ public class SaplingListener implements Listener {
                 }
             }
 
+            System.out.println(event.getLocation().getX() + "x, " + event.getLocation().getY() + "y, " +
+                    event.getLocation().getZ() + "z");
             System.out.println(selectedCustomTree.getName() + " " + rotation + ": " +
-                    xOffset + "," + yOffset + "," + zOffset);
+                    xOffset + "x, " + yOffset + "y, " + zOffset + "z");
 
             event.getLocation().getBlock().setType(Material.AIR);
 
@@ -205,10 +207,12 @@ public class SaplingListener implements Listener {
                     clipboard.getOrigin(), session, to);
 
             if (!transform.isIdentity()) {
+                System.out.println("transform set");
                 copy.setTransform(transform);
             }
             copy.setSourceMask(new ExistingBlockMask(clipboard));
 
+//            Operations.complete(copy);
             Operations.completeLegacy(copy);
             session.flushSession();
         } catch (Exception e) {
