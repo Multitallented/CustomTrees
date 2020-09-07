@@ -19,12 +19,24 @@ public final class Util {
                 material != Material.DIRT &&
                 material != Material.MYCELIUM &&
                 material != Material.PODZOL &&
+                material != Material.WARPED_HYPHAE &&
+                material != Material.WARPED_NYLIUM &&
+                material != Material.CRIMSON_HYPHAE &&
+                material != Material.CRIMSON_NYLIUM &&
+                material != Material.CRIMSON_FUNGUS &&
+                material != Material.WARPED_FUNGUS &&
                 material != Material.STONE &&
                 material != Material.OAK_LOG &&
                 material != Material.BIRCH_LOG &&
                 material != Material.SPRUCE_LOG &&
                 material != Material.JUNGLE_LOG &&
                 material != Material.DARK_OAK_LOG &&
+                material != Material.OAK_SAPLING &&
+                material != Material.BIRCH_SAPLING &&
+                material != Material.JUNGLE_SAPLING &&
+                material != Material.ACACIA_SAPLING &&
+                material != Material.DARK_OAK_SAPLING &&
+                material != Material.SPRUCE_SAPLING &&
                 material != Material.ACACIA_LOG) {
             return false;
         }
@@ -39,11 +51,7 @@ public final class Util {
                 material != Material.DARK_OAK_SAPLING &&
                 material != Material.ACACIA_SAPLING &&
                 material != Material.WARPED_FUNGUS &&
-                material != Material.WARPED_NYLIUM &&
-                material != Material.WARPED_HYPHAE &&
                 material != Material.CRIMSON_FUNGUS &&
-                material != Material.CRIMSON_NYLIUM &&
-                material != Material.CRIMSON_HYPHAE &&
                 material != Material.BROWN_MUSHROOM &&
                 material != Material.RED_MUSHROOM) {
             return false;
