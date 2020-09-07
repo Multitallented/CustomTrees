@@ -1,4 +1,10 @@
-FOREST:
+biomes:
+  - FOREST
+  - FLOWER_FOREST
+  - BIRCH_FOREST
+  - TALL_BIRCH_FOREST
+  - BIRCH_FOREST_HILLS
+materials:
   OAK_SAPLING:
     NA16S-Baldcypress:
       weight: 40

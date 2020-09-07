@@ -1,4 +1,9 @@
-SAVANNA:
+biomes:
+  - SAVANNA
+  - SAVANNA_PLATEAU
+  - SHATTERED_SAVANNA
+  - SHATTERED_SAVANNA_PLATEAU
+materials:
   OAK_SAPLING:
     oakbush1:
       weight: 100

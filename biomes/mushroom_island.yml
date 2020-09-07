@@ -1,4 +1,7 @@
-MUSHROOM_ISLAND:
+biomes:
+  - MUSHROOM_FIELDS
+  - MUSHROOM_FIELD_SHORE
+materials:
   RED_MUSHROOM:
     R1:
       weight: 40

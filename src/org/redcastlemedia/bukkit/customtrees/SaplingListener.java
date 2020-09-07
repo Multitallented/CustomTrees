@@ -1,19 +1,26 @@
 package org.redcastlemedia.bukkit.customtrees;
 
 import com.sk89q.worldedit.EditSession;
+import com.sk89q.worldedit.WorldEdit;
+import com.sk89q.worldedit.WorldEditException;
+import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldedit.bukkit.BukkitWorld;
 import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
 import com.sk89q.worldedit.function.mask.ExistingBlockMask;
 import com.sk89q.worldedit.function.operation.ForwardExtentCopy;
+import com.sk89q.worldedit.function.operation.Operation;
 import com.sk89q.worldedit.function.operation.Operations;
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.math.transform.AffineTransform;
+import com.sk89q.worldedit.session.ClipboardHolder;
+
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.PluginDisableEvent;
@@ -22,8 +29,10 @@ import org.bukkit.event.world.StructureGrowEvent;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.logging.Level;
 
 /**
  * Created by Multi on 11/19/2015.
@@ -35,34 +44,10 @@ public class SaplingListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler
-    public void onPluginEnable(PluginEnableEvent event) {
-        if (event.getPlugin().getName().equalsIgnoreCase("worldedit")) {
-            CustomTrees.worldEdit = (WorldEditPlugin) event.getPlugin();
-        }
-    }
-    @EventHandler
-    public void onPluginDisable(PluginDisableEvent event) {
-        if (event.getPlugin().getName().equalsIgnoreCase("worldedit")) {
-            CustomTrees.worldEdit = null;
-        }
-    }
-
-
-    @EventHandler
+    @EventHandler(ignoreCancelled = true) @SuppressWarnings("unused")
     public void onSaplingGrowth(StructureGrowEvent event) {
-        if (event.isCancelled() || CustomTrees.worldEdit == null) {
-            return;
-        }
         Material saplingMaterial = event.getLocation().getBlock().getType();
-        if (saplingMaterial != Material.OAK_SAPLING &&
-                saplingMaterial != Material.BIRCH_SAPLING &&
-                saplingMaterial != Material.SPRUCE_SAPLING &&
-                saplingMaterial != Material.JUNGLE_SAPLING &&
-                saplingMaterial != Material.DARK_OAK_SAPLING &&
-                saplingMaterial != Material.ACACIA_SAPLING &&
-                saplingMaterial != Material.BROWN_MUSHROOM &&
-                saplingMaterial != Material.RED_MUSHROOM) {
+        if (!Util.isGrowableMaterial(saplingMaterial)) {
             return;
         }
 
@@ -81,6 +66,7 @@ public class SaplingListener implements Listener {
         int xOffset = 0;
         int yOffset = 0;
         int zOffset = 0;
+        Clipboard clipboard = null;
         CustomTree selectedCustomTree = null;
         {
             HashSet<CustomTree> treeSet = treeMap.get(saplingMaterial);
@@ -105,26 +91,43 @@ public class SaplingListener implements Listener {
                 selectedCustomTree = customTree;
                 File schematicsFolder = new File (plugin.getDataFolder(), "schematics");
                 schematicFile = new File(schematicsFolder, customTree.getName() + ".schematic");
+
+                if (!schematicFile.exists()) {
+                    plugin.getLogger().log(Level.SEVERE, "schematic {0} does not exist", customTree.getName());
+                    return;
+                }
                 xOffset = customTree.getXOffset();
                 yOffset = customTree.getYOffset();
                 zOffset = customTree.getZOffset();
+
+                final ClipboardFormat schematicFormat = ClipboardFormats.findByFile(schematicFile);
+
+                if(schematicFormat == null) {
+                    plugin.getLogger().log(Level.SEVERE, "corrupt schematic file {0}", schematicFile.getName());
+                    return;
+                }
+
+                try {
+                    clipboard = schematicFormat.load(schematicFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 break;
             }
-
-            if (schematicFile == null || !schematicFile.exists()) {
-                System.out.println("schematic " + schematicFile.getName() + " does not exist");
+            if (schematicFile == null) {
+                plugin.getLogger().log(Level.SEVERE, "no custom tree found");
                 return;
             }
+
 
             event.setCancelled(true);
         }
 
         try {
-            BlockVector3 to = BlockVector3.at(event.getLocation().getX() + xOffset,
+            BlockVector3 pastePosition = BlockVector3.at(event.getLocation().getX() + xOffset,
                                               event.getLocation().getY() + yOffset,
                                               event.getLocation().getZ() + zOffset);
-            Clipboard clipboard = ClipboardFormats.findByFile(schematicFile)
-                    .getReader(new FileInputStream(schematicFile)).read();
 
             int length = clipboard.getRegion().getLength();
             int width = clipboard.getRegion().getWidth();
@@ -147,24 +150,7 @@ public class SaplingListener implements Listener {
                         }
 
                         Block block = event.getWorld().getBlockAt(x, y, z);
-                        if (block.getType().isSolid() &&
-                                block.getType() != Material.OAK_LEAVES &&
-                                block.getType() != Material.BIRCH_LEAVES &&
-                                block.getType() != Material.SPRUCE_LEAVES &&
-                                block.getType() != Material.JUNGLE_LEAVES &&
-                                block.getType() != Material.DARK_OAK_LEAVES &&
-                                block.getType() != Material.ACACIA_LEAVES &&
-                                block.getType() != Material.GRASS &&
-                                block.getType() != Material.DIRT &&
-                                block.getType() != Material.MYCELIUM &&
-                                block.getType() != Material.PODZOL &&
-                                block.getType() != Material.STONE &&
-                                block.getType() != Material.OAK_LOG &&
-                                block.getType() != Material.BIRCH_LOG &&
-                                block.getType() != Material.SPRUCE_LOG &&
-                                block.getType() != Material.JUNGLE_LOG &&
-                                block.getType() != Material.DARK_OAK_LOG &&
-                                block.getType() != Material.ACACIA_LOG) {
+                        if (!Util.isNaturalMaterial(block.getType())) {
                             return;
                         }
 
@@ -200,24 +186,30 @@ public class SaplingListener implements Listener {
 
             event.getLocation().getBlock().setType(Material.AIR);
 
-            EditSession session = CustomTrees.worldEdit.getWorldEdit().getEditSessionFactory()
-                    .getEditSession(new BukkitWorld(event.getWorld()), -1);
+            com.sk89q.worldedit.world.World faweWorld = BukkitAdapter.adapt(event.getWorld());
 
-            ForwardExtentCopy copy = new ForwardExtentCopy(clipboard, clipboard.getRegion(),
-                    clipboard.getOrigin(), session, to);
+            final EditSession editSession = WorldEdit.getInstance().getEditSessionFactory().getEditSession(faweWorld, -1);
 
+            ClipboardHolder clipboardHolder = new ClipboardHolder(clipboard);
             if (!transform.isIdentity()) {
                 System.out.println("transform set");
-                copy.setTransform(transform);
+                clipboardHolder.setTransform(transform);
             }
-            copy.setSourceMask(new ExistingBlockMask(clipboard));
+            Operation operation = clipboardHolder
+                    .createPaste(editSession)
+                    .to(pastePosition)
+                    .ignoreAirBlocks(true)
+                    .build();
 
-//            Operations.complete(copy);
-            Operations.completeLegacy(copy);
-            session.flushSession();
+
+            try {
+                Operations.complete(operation);
+            } catch (WorldEditException e) {
+                e.printStackTrace();
+            }
+            editSession.flushSession();
         } catch (Exception e) {
             e.printStackTrace();
         }
-// c1.paste(session, new Vector(event.getLocation().getX() + xOffset, event.getLocation().getY() + yOffset, event.getLocation().getZ() + zOffset), true);
     }
 }

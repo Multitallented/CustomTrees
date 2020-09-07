@@ -18,15 +18,11 @@ import com.sk89q.worldedit.bukkit.WorldEditPlugin;
  */
 public class CustomTrees extends JavaPlugin {
 
-    public static WorldEditPlugin worldEdit = null;
     public static FileConfiguration config;
     public static final HashMap<String, HashMap<Material, HashSet<CustomTree>>> trees = new HashMap<>();
 
     @Override
     public void onEnable() {
-        if (Bukkit.getPluginManager().isPluginEnabled("WorldEdit")) {
-            worldEdit = (WorldEditPlugin) Bukkit.getPluginManager().getPlugin("WorldEdit");
-        }
         Bukkit.getPluginManager().registerEvents(new SaplingListener(this), this);
 
         File folder = getDataFolder();
@@ -78,13 +74,12 @@ public class CustomTrees extends JavaPlugin {
             return;
         }
         for (File file : biomeFolder.listFiles()) {
-            String biome = file.getName().replace(".yml", "");
             FileConfiguration config = new YamlConfiguration();
             HashMap<Material, HashSet<CustomTree>> treeMap = new HashMap<>();
             try {
                 config.load(file);
-                for (String materialName : config.getConfigurationSection(biome.toUpperCase()).getKeys(false)) {
-                    ConfigurationSection section  = config.getConfigurationSection(biome.toUpperCase() + "." + materialName);
+                for (String materialName : config.getConfigurationSection("materials").getKeys(false)) {
+                    ConfigurationSection section  = config.getConfigurationSection("materials." + materialName);
 
                     Material material = Material.valueOf(materialName);
                     HashSet<CustomTree> matSet = new HashSet<>();
@@ -105,7 +100,9 @@ public class CustomTrees extends JavaPlugin {
                 e.printStackTrace();
                 getLogger().severe("Unable to read " + file.getName());
             }
-            trees.put(biome.toUpperCase(), treeMap);
+            for (String biomeName : config.getStringList("biomes")) {
+                trees.put(biomeName.toUpperCase(), treeMap);
+            }
         }
     }
 

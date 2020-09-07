@@ -1,4 +1,7 @@
-SWAMP:
+biomes:
+  - SWAMP
+  - SWAMP_HILLS
+materials:
   OAK_SAPLING:
     EUR2S-CommonAsh:
       weight: 100

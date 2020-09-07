@@ -1,0 +1,40 @@
+biomes:
+  - BADLANDS
+  - BADLANDS_PLATEAU
+  - ERODED_BADLANDS
+  - MODIFIED_BADLANDS_PLATEAU
+  - MODIFIED_WOODED_BADLANDS_PLATEAU
+  - WOODED_BADLANDS_PLATEAU
+materials:
+  OAK_SAPLING:
+    NA1L-RedMaple:
+      weight: 60
+    NA1S-RedMaple:
+      weight: 100
+    NA4S-Sweetgum:
+      weight: 100
+  BIRCH_SAPLING:
+    bush2M:
+      weight: 100
+    bush2s:
+      weight: 100
+  SPRUCE_SAPLING:
+    birchbush1s:
+      weight: 100
+    birchbush1M:
+      weight: 100
+  JUNGLE_SAPLING:
+    junglebush1:
+      weight: 100
+    junglebush2:
+      weight: 100
+  ACACIA_SAPLING:
+    acaciabush1:
+      weight: 100
+    acaciabush2:
+      weight: 75
+  DARK_OAK_SAPLING:
+    darkbush1:
+      weight: 100
+    darkbush2:
+      weight: 90

@@ -1,4 +1,6 @@
-DEFAULT:
+biomes:
+  - DEFAULT
+materials:
   OAK_SAPLING:
     NA16S-Baldcypress:
       weight: 40
