@@ -36,6 +36,8 @@ public final class Util {
                 material != Material.SOUL_CAMPFIRE &&
                 material != Material.STONE &&
                 material != Material.OAK_LOG &&
+                material != Material.CRIMSON_ROOTS &&
+                material != Material.WARPED_ROOTS &&
                 material != Material.BIRCH_LOG &&
                 material != Material.SPRUCE_LOG &&
                 material != Material.JUNGLE_LOG &&

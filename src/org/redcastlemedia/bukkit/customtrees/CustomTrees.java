@@ -11,8 +11,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.sk89q.worldedit.bukkit.WorldEditPlugin;
-
 /**
  * Created by Multi on 11/19/2015.
  */

@@ -7,12 +7,12 @@ materials:
     warped2:
       weight: 50
       y-offset: -1
-      x-offset: -2
-      z-offset: -2
+      x-offset: 2
+      z-offset: 2
     warped3:
       weight: 50
       y-offset: -1
-      x-offset: -2
-      z-offset: -2
+      x-offset: 2
+      z-offset: 2
     warped4:
       weight: 50
