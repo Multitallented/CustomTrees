@@ -1,7 +1,5 @@
 biomes:
   - BEACH
-  - DESERT
-  - DESERT_HILLS
   - SNOWY_BEACH
   - PLAINS
 materials:

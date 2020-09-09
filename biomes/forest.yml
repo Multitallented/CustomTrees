@@ -6,24 +6,24 @@ biomes:
   - BIRCH_FOREST_HILLS
 materials:
   OAK_SAPLING:
-    NA16S-Baldcypress:
+    oak8:
       weight: 40
       y-offset: -3
-    NA10S-WhiteOak:
+    oak10:
       weight: 60
       y-offset: -1
-    NA10L-WhiteOak:
+    oak11:
       weight: 16
-      y-offset: 2
-    NA13L-AmericanBeech:
+      y-offset: -2
+    oak7:
       weight: 6
       y-offset: -3
-    NA13S-AmericanBeech:
+    oak6:
       weight: 26
       y-offset: -2
-    NA8S-FloweringDogwood:
+    oak5:
       weight: 60
       y-offset: -1
-    NA3s-LoblollyPine:
+    oak4:
       weight: 34
       y-offset: -2

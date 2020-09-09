@@ -16,6 +16,8 @@ public final class Util {
                 material != Material.DARK_OAK_LEAVES &&
                 material != Material.ACACIA_LEAVES &&
                 material != Material.GRASS &&
+                material != Material.GRASS_BLOCK &&
+                material != Material.TALL_GRASS &&
                 material != Material.DIRT &&
                 material != Material.MYCELIUM &&
                 material != Material.PODZOL &&
@@ -25,6 +27,13 @@ public final class Util {
                 material != Material.CRIMSON_NYLIUM &&
                 material != Material.CRIMSON_FUNGUS &&
                 material != Material.WARPED_FUNGUS &&
+                material != Material.WARPED_WART_BLOCK &&
+                material != Material.NETHER_WART_BLOCK &&
+                material != Material.SHROOMLIGHT &&
+                material != Material.TWISTING_VINES &&
+                material != Material.WEEPING_VINES &&
+                material != Material.CAMPFIRE &&
+                material != Material.SOUL_CAMPFIRE &&
                 material != Material.STONE &&
                 material != Material.OAK_LOG &&
                 material != Material.BIRCH_LOG &&

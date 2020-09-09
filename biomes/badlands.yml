@@ -7,11 +7,11 @@ biomes:
   - WOODED_BADLANDS_PLATEAU
 materials:
   OAK_SAPLING:
-    NA1L-RedMaple:
+    oak1:
       weight: 60
-    NA1S-RedMaple:
+    oak2:
       weight: 100
-    NA4S-Sweetgum:
+    oak3:
       weight: 100
   BIRCH_SAPLING:
     bush2M:

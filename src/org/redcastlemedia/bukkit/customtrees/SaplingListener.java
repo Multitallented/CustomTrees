@@ -1,38 +1,31 @@
 package org.redcastlemedia.bukkit.customtrees;
 
-import com.sk89q.worldedit.EditSession;
-import com.sk89q.worldedit.WorldEdit;
-import com.sk89q.worldedit.WorldEditException;
-import com.sk89q.worldedit.bukkit.BukkitAdapter;
-import com.sk89q.worldedit.bukkit.BukkitWorld;
-import com.sk89q.worldedit.bukkit.WorldEditPlugin;
-import com.sk89q.worldedit.extent.clipboard.Clipboard;
-import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
-import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
-import com.sk89q.worldedit.function.mask.ExistingBlockMask;
-import com.sk89q.worldedit.function.operation.ForwardExtentCopy;
-import com.sk89q.worldedit.function.operation.Operation;
-import com.sk89q.worldedit.function.operation.Operations;
-import com.sk89q.worldedit.math.BlockVector3;
-import com.sk89q.worldedit.math.transform.AffineTransform;
-import com.sk89q.worldedit.session.ClipboardHolder;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.logging.Level;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.server.PluginDisableEvent;
-import org.bukkit.event.server.PluginEnableEvent;
 import org.bukkit.event.world.StructureGrowEvent;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.logging.Level;
+import com.sk89q.worldedit.EditSession;
+import com.sk89q.worldedit.WorldEdit;
+import com.sk89q.worldedit.WorldEditException;
+import com.sk89q.worldedit.bukkit.BukkitAdapter;
+import com.sk89q.worldedit.extent.clipboard.Clipboard;
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
+import com.sk89q.worldedit.function.operation.Operation;
+import com.sk89q.worldedit.function.operation.Operations;
+import com.sk89q.worldedit.math.BlockVector3;
+import com.sk89q.worldedit.math.transform.AffineTransform;
+import com.sk89q.worldedit.session.ClipboardHolder;
 
 /**
  * Created by Multi on 11/19/2015.
@@ -88,13 +81,15 @@ public class SaplingListener implements Listener {
                 if (randomWeight > 0) {
                     continue;
                 }
-                selectedCustomTree = customTree;
                 File schematicsFolder = new File (plugin.getDataFolder(), "schematics");
                 schematicFile = new File(schematicsFolder, customTree.getName() + ".schematic");
 
                 if (!schematicFile.exists()) {
-                    plugin.getLogger().log(Level.SEVERE, "schematic {0} does not exist", customTree.getName());
-                    return;
+                    schematicFile = new File(schematicsFolder, customTree.getName() + ".schem");
+                    if (!schematicFile.exists()) {
+                        plugin.getLogger().log(Level.SEVERE, "schematic {0} does not exist", customTree.getName());
+                        return;
+                    }
                 }
                 xOffset = customTree.getXOffset();
                 yOffset = customTree.getYOffset();
@@ -125,15 +120,39 @@ public class SaplingListener implements Listener {
         }
 
         try {
+            AffineTransform transform = new AffineTransform();
+
+            int rotation = new Random().nextInt(3);
+            rotation *= 90;
+            if (rotation != 0) {
+                transform = transform.rotateY(rotation);
+                if (rotation == 90) {
+                    int tempOffset = xOffset;
+                    xOffset = -1 * zOffset;
+                    zOffset = tempOffset;
+                } else if (rotation == 180) {
+                    xOffset = -1 * xOffset;
+                    zOffset = -1 * zOffset;
+                } else if (rotation == 270) {
+                    int tempOffset = zOffset;
+                    xOffset = -1 * zOffset;
+                    zOffset = tempOffset;
+                }
+
+            }
+
             BlockVector3 pastePosition = BlockVector3.at(event.getLocation().getX() + xOffset,
                                               event.getLocation().getY() + yOffset,
                                               event.getLocation().getZ() + zOffset);
 
             int length = clipboard.getRegion().getLength();
             int width = clipboard.getRegion().getWidth();
-            clipboard.setOrigin(BlockVector3.at(width / 2 * -1,0,length / 2 * -1));
+            clipboard.setOrigin(BlockVector3.at(width / 2,0,length / 2));
 
-            //c1.setOffset(new Vector(width / 2 * -1, 0, length / 2 * -1));
+            ClipboardHolder clipboardHolder = new ClipboardHolder(clipboard);
+            if (rotation != 0) {
+                clipboardHolder.setTransform(transform);
+            }
 
             int a = (int) (event.getLocation().getX() + xOffset - (width / 2));
             int b = (int) (event.getLocation().getY() + yOffset);
@@ -159,42 +178,12 @@ public class SaplingListener implements Listener {
                 }
             }
 
-            AffineTransform transform = new AffineTransform();
-
-            int rotation = (int) (Math.random() * 3.9999);
-            rotation *= 90;
-            if (rotation != 0) {
-                transform.rotateY(rotation);
-                if (rotation == 90) {
-                    int tempOffset = xOffset;
-                    xOffset = -1 * zOffset;
-                    zOffset = tempOffset;
-                } else if (rotation == 180) {
-                    xOffset = -1 * xOffset;
-                    zOffset = -1 * zOffset;
-                } else if (rotation == 270) {
-                    int tempOffset = xOffset;
-                    xOffset = -1 * zOffset;
-                    zOffset = tempOffset;
-                }
-            }
-
-            System.out.println(event.getLocation().getX() + "x, " + event.getLocation().getY() + "y, " +
-                    event.getLocation().getZ() + "z");
-            System.out.println(selectedCustomTree.getName() + " " + rotation + ": " +
-                    xOffset + "x, " + yOffset + "y, " + zOffset + "z");
-
             event.getLocation().getBlock().setType(Material.AIR);
 
             com.sk89q.worldedit.world.World faweWorld = BukkitAdapter.adapt(event.getWorld());
 
             final EditSession editSession = WorldEdit.getInstance().getEditSessionFactory().getEditSession(faweWorld, -1);
 
-            ClipboardHolder clipboardHolder = new ClipboardHolder(clipboard);
-            if (!transform.isIdentity()) {
-                System.out.println("transform set");
-                clipboardHolder.setTransform(transform);
-            }
             Operation operation = clipboardHolder
                     .createPaste(editSession)
                     .to(pastePosition)

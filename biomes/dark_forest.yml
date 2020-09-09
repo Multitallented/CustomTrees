@@ -3,13 +3,13 @@ biomes:
   - DARK_FOREST_HILLS
 materials:
   OAK_SAPLING:
-    AFR8S-Mopane:
+    oak9:
       weight: 90
       y-offset: -2
-    NA13S-AmericanBeech:
+    oak6:
       weight: 26
       y-offset: -2
-    NA3s-LoblollyPine:
+    oak4:
       weight: 34
       y-offset: -2
   RED_MUSHROOM:
@@ -48,11 +48,3 @@ materials:
     B7:
       weight: 65
       y-offset: -1
-    W2:
-      weight: 50
-    W3:
-      weight: 50
-    W4:
-      weight: 50
-    W5:
-      weight: 50

@@ -2,65 +2,63 @@ biomes:
   - DEFAULT
 materials:
   OAK_SAPLING:
-    NA16S-Baldcypress:
+    oak8:
       weight: 40
       y-offset: -3
-    NA10S-WhiteOak:
+    oak10:
       weight: 60
       y-offset: -1
-    NA13S-AmericanBeech:
+    oak6:
       weight: 26
       y-offset: -2
-    NA8S-FloweringDogwood:
+    oak5:
       weight: 60
       y-offset: -1
-    NA3s-LoblollyPine:
+    oak4:
       weight: 34
       y-offset: -2
   BIRCH_SAPLING:
-    AFR10S-Tamboti:
+    birch1:
       weight: 85
       y-offset: -1
-    AFR12L-Huilboerboon:
+    birch2:
       weight: 70
       y-offset: -3
-    AFR12S-Huilboerboon:
+    birch4:
       weight: 75
       y-offset: -1
-    AFR1S-GrandidiersBaobab:
-      weight: 25
-      y-offset: -4
-    AFR5S-Jackalberry:
+    birch5:
       weight: 38
       y-offset: -2
-    AFR9S-SausageTree:
+      x-offset: -1
+    birch3:
       weight: 43
       y-offset: -3
   SPRUCE_SAPLING:
-    EUR14S-ScotsPine:
+    spruce3:
       weight: 25
       y-offset: -1
-    EUR10L-EUHolly:
+    spruce4:
       weight: 50
-    EUR11L-CommonJuniper:
+    spruce1:
       weight: 60
-    EUR11S-CommonJuniper:
+    spruce2:
       weight: 80
       y-offset: -1
-    EUR20S-NorwaySpruce:
+    spruce5:
       weight: 60
       y-offset: -1
   JUNGLE_SAPLING:
-    SA17S-MaripaPalm:
+    jungle5:
       weight: 70
-    SA15L-LeopoldiniaPiassaba:
+    jungle4:
       weight: 60
-    SA8L-BabassuPalm:
+    jungle2:
       weight: 68
-    SA10S-BrazilNut:
+    jungle3:
       weight: 10
       y-offset: -2
-    SA4S-AstrocaryumJauari:
+    jungle1:
       weight: 65
   ACACIA_SAPLING:
     acacia1L:
@@ -75,22 +73,29 @@ materials:
     acacia2L:
       weight: 33
   DARK_OAK_SAPLING:
-    5-1-1:
+    dark-oak1:
       weight: 90
       y-offset: -4
-    5-1-2:
+    dark-oak2:
       weight: 72
       y-offset: -2
-    5-2-1:
+    dark-oak3:
       weight: 70
       y-offset: -2
-    5-2-2:
+    dark-oak4:
       weight: 60
-      y-offset: -2
+      y-offset: -3
   BROWN_MUSHROOM:
-    B7:
+    B6:
       weight: 65
-      y-offset: -1
   RED_MUSHROOM:
     R7:
+      weight: 100
+    W4:
+      weight: 50
+  WARPED_FUNGUS:
+    deadbush:
+      weight: 100
+  CRIMSON_FUNGUS:
+    deadbush:
       weight: 100

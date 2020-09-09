@@ -47,44 +47,21 @@ materials:
     B7:
       weight: 65
       y-offset: -1
-    W1:
-      weight: 5
-      y-offset: -1
-    W2:
-      weight: 50
-    W3:
-      weight: 50
-    W4:
-      weight: 50
-    W5:
-      weight: 50
   OAK_SAPLING:
-    oakbush1:
-      weight: 100
-    oakbush2:
+    deadbush:
       weight: 100
   BIRCH_SAPLING:
-    bush2M:
-      weight: 100
-    bush2s:
+    deadbush:
       weight: 100
   SPRUCE_SAPLING:
-    birchbush1s:
-      weight: 100
-    birchbush1M:
+    deadbush:
       weight: 100
   JUNGLE_SAPLING:
-    junglebush1:
-      weight: 100
-    junglebush2:
+    deadbush:
       weight: 100
   ACACIA_SAPLING:
-    acaciabush1:
+    deadbush:
       weight: 100
-    acaciabush2:
-      weight: 75
   DARK_OAK_SAPLING:
-    darkbush1:
+    deadbush:
       weight: 100
-    darkbush2:
-      weight: 90

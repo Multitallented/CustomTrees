@@ -1,0 +1,14 @@
+biomes:
+  - CRIMSON_FOREST
+materials:
+  CRIMSON_FUNGUS:
+    crimson1:
+      weight: 50
+    crimson2:
+      weight: 50
+      y-offset: -1
+    crimson3:
+      weight: 50
+    crimson4:
+      weight: 50
+      y-offset: -1

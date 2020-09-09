@@ -1,0 +1,37 @@
+biomes:
+  - BASALT_DELTAS
+  - NETHER_WASTES
+  - DESERT
+  - DESERT_HILLS
+  - ICE_SPIKES
+materials:
+  OAK_SAPLING:
+    deadbush:
+      weight: 100
+  BIRCH_SAPLING:
+    deadbush:
+      weight: 100
+  SPRUCE_SAPLING:
+    deadbush:
+      weight: 100
+  JUNGLE_SAPLING:
+    deadbush:
+      weight: 100
+  DARK_OAK_SAPLING:
+    deadbush:
+      weight: 100
+  ACACIA_SAPLING:
+    deadbush:
+      weight: 100
+  BROWN_MUSHROOM:
+    deadbush:
+      weight: 100
+  RED_MUSHROOM:
+    deadbush:
+      weight: 100
+  WARPED_FUNGUS:
+    deadbush:
+      weight: 100
+  CRIMSON_FUNGUS:
+    deadbush:
+      weight: 100
