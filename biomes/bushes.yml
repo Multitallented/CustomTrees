@@ -9,14 +9,14 @@ materials:
     oakbush2:
       weight: 100
   BIRCH_SAPLING:
-    bush2M:
-      weight: 100
-    bush2s:
-      weight: 100
-  SPRUCE_SAPLING:
     birchbush1s:
       weight: 100
     birchbush1M:
+      weight: 100
+  SPRUCE_SAPLING:
+    bush2M:
+      weight: 100
+    bush2s:
       weight: 100
   JUNGLE_SAPLING:
     junglebush1:

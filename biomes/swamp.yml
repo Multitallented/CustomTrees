@@ -4,10 +4,10 @@ biomes:
 materials:
   OAK_SAPLING:
     oak12:
-      weight: 100
+      weight: 35
       y-offset: -3
     oak9:
-      weight: 100
+      weight: 50
       y-offset: -2
     oak13:
       weight: 100
